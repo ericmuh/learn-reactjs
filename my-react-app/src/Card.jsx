@@ -1,13 +1,14 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
 function Card(props) {
     return (
-        <ul>
-            <li>{props.name}</li>
-            <li>{props.age}</li>
-        </ul>
+        <> {props.children}</>
     )
 }
 
+Card.propTypes = {
 
-export default Card
+    children: PropTypes.node.isRequired,
+};
+
+export default Card;
