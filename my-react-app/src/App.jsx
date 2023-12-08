@@ -1,5 +1,5 @@
 import HelloWorld from './HelloWorld'
-import Card from './Card'
+import Article from './Article'
 import UserDetails from './UserDetails'
 
 function App() {
@@ -7,12 +7,11 @@ function App() {
     <>
       <HelloWorld />
 
-      <Card>
+      <Article>
         <img src="https://example.com/image.png" alt="some Image" />
         <UserDetails name="John" age="30" />
-      </Card>
+      </Article>
 
-      <Card name="Jane" age="24" />
 
     </>
   )
