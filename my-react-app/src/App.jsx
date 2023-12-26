@@ -1,6 +1,8 @@
-import HelloWorld from './HelloWorld'
-import Card from './Card'
-import UserDetails from './UserDetails'
+import PropTypes from 'prop-types';
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Card from './Card';
+import SignUpForm from './Form';
+import HelloWorld from './HelloWorld';
 
 function Article(props) {
   return (
@@ -9,58 +11,35 @@ function Article(props) {
       <img src={props.image} alt={props.title} width={props.size}></img>
     </>
   );
+}
 
-  function App() {
 
-    const users = [
-      {
-        id: 1,
-        name: 'John',
-        age: 30,
-        user_image: 'https://picsum.photos/id/236/200/300'
-      },
-      {
-        id: 2,
-        name: 'Jane',
-        age: 24,
-        user_image: 'https://picsum.photos/id/237/200/300'
-      },
-      {
-        id: 3,
-        name: 'Jack',
-        age: 32,
-        user_image: 'https://picsum.photos/id/238/200/300'
-      },
-      {
-        id: 4,
-        name: 'Jill',
-        age: 28,
-        user_image: 'https://picsum.photos/id/239/200/300'
-      },
-    ]
+function App() {
 
-    return (
-      <>
-        <HelloWorld />
-        {
-          users.map((user) => {
-            return (
-              <Card key={user.id}>
-                <img src={user.user_image} alt="some Image" />
-                <UserDetails name={user.name} age={user.age} />
-              </Card>
-            )
-          })
-        }
-        <Article
-          details={{
-            title: 'Morse Code: A visual guide',
-            image: 'https://i.imgur.com/5OluoVs.png'
-          }}
-          size={100}
-        />
-      </>
-    )
-  }
 
-  export default App
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HelloWorld />} />
+        <Route path="about" element={<SignUpForm />} />
+        <Route path="dashboard" element={<Card />} />
+        <Route path='*' element={<h1>Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+function Navbar() {
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/register">Register</Link>
+    <Link to="/login">Register</Link>
+  </nav>
+}
+export default App
+Article.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired
+};

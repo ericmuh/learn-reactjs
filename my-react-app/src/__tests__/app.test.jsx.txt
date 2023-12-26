@@ -1,0 +1,27 @@
+import { expect, test, describe, it } from "vitest";
+import { render} from "@testing-library/react";
+import Button from "../Button";
+
+// test("Button displays 0", async () => {
+//   const {getByTestId} = render(<Button />);
+
+//   const btn = getByTestId("button");
+//   expect(btn.textContent).toBe("0");
+// });
+// describe("Button displays 0", async () => {
+//   const {getByTestId} = render(<Button />);
+
+//   const btn = getByTestId("button");
+//   expect(btn.textContent).toBe("0");
+// });
+
+describe('Button', () => {
+  /**... */
+  it('should have a button with 0', () => {
+      /**... */
+      const { getByTestId } = render(<Button />);
+      expect(
+          getByTestId('button').textContent
+      ).toBe("0");
+  });
+})
